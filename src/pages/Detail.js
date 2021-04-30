@@ -19,7 +19,6 @@ export const Detail = () => {
   const getCountriesAll = async () => {
     await axios.get(`${url}/name/${name}?fullText=true`)
       .then(res => {
-        console.log(res);
         const data = res.data;
         setCountry(data[0]);
         setLoading(false)
@@ -37,7 +36,9 @@ export const Detail = () => {
             <img src={country.flag} alt="" style={{ width: '100%', minHeight: '300px', height: '100%' }} />
           </div>
           <div className="col-sm-6 col-lg-6 col-md-6 col-xl-6 mt-3 mb-3 align-self-center">
-            <h1 className='fs-4 text'>{country.name}</h1>
+
+            <h1 className='fs-3 text mb-1'>{country.name}</h1>
+
             <div className='row'>
               <div className='col-md-6 col-xl-6'>
                 <p className='fs-6 text'>Native name: {country.nativeName}</p>
@@ -55,6 +56,9 @@ export const Detail = () => {
                 </p>
               </div>
             </div>
+
+            <h2 className='fs-4 text mt-4'>Border Countries:</h2>
+            <p className='fs-6 text'>{country.borders.map(item => { return (<span className="btn btn-light m-2">{item} </span>) })}</p>
           </div>
         </div>
       </div>
