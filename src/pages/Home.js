@@ -21,14 +21,14 @@ export const Home = () => {
 
         <div className='row align-items-center m-3'>
 
-          <div className="col-md-6">
+          <div className="col-md-6 mt-2 mb-2">
             <div className="input-group  me-auto" style={{ maxWidth: '300px' }}>
               <span className="input-group-text" id="basic-addon1"><BsSearch /></span>
               <input type="text" className="form-control" placeholder="Buscar" value={name} onChange={onChangeSerch} />
             </div>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-6 mt-2 mb-2">
             <select defaultValue='All' className="form-select ms-auto" aria-label="Default select example" style={{ maxWidth: '200px' }} onChange={onChange}>
               <option value="all">All</option>
               <option value="Africa">Africa</option>
