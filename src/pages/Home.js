@@ -15,8 +15,6 @@ export const Home = () => {
     setName(e.target.value)
   }
 
-
-
   return (
     <React.Fragment>
       <div className='container'>
@@ -25,7 +23,7 @@ export const Home = () => {
 
           <div className="col-md-6">
             <div className="input-group  me-auto" style={{ maxWidth: '300px' }}>
-              <span class="input-group-text" id="basic-addon1"><BsSearch /></span>
+              <span className="input-group-text" id="basic-addon1"><BsSearch /></span>
               <input type="text" className="form-control" placeholder="Buscar" value={name} onChange={onChangeSerch} />
             </div>
           </div>
