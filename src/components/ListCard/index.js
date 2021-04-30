@@ -5,20 +5,29 @@ import axios from 'axios'
 import { Loading } from './../../assets/styles'
 
 
-export const ListCard = ({ paisId = false }) => {
+export const ListCard = ({ paisId = 'all' }) => {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (paisId === false) {
+    if (paisId === 'all') {
       getCountriesAll()
     } else {
-      getCountries()
+      getCountriesRegion()
     }
   }, [paisId])
 
   const getCountriesAll = async () => {
-    await axios.get(`${url}/all`)
+    await axios.get(`${url}/${paisId}`)
+      .then(res => {
+        const data = res.data;
+        setCountries(data)
+        setLoading(false)
+      })
+  }
+
+  const getCountriesRegion = async () => {
+    await axios.get(`${url}/region/${paisId}`)
       .then(res => {
         const data = res.data;
         setCountries(data)
