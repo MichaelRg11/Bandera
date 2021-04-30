@@ -5,17 +5,21 @@ import axios from 'axios'
 import { Loading } from './../../assets/styles'
 
 
-export const ListCard = ({ paisId = 'all' }) => {
+export const ListCard = ({ paisId = 'all', name = '' }) => {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (paisId === 'all') {
       getCountriesAll()
-    } else {
+    } else if (paisId !== '') {
       getCountriesRegion()
     }
-  }, [paisId])
+
+    if (name !== '') {
+      getCountriesName()
+    }
+  }, [paisId, name])
 
   const getCountriesAll = async () => {
     await axios.get(`${url}/${paisId}`)
@@ -35,9 +39,13 @@ export const ListCard = ({ paisId = 'all' }) => {
       })
   }
 
-  const getCountries = async () => {
-    const { data } = await axios.get(`${url}/all`)
-    setCountries(data)
+  const getCountriesName = async () => {
+    await axios.get(`${url}/name/${name}`)
+      .then(res => {
+        const data = res.data;
+        setCountries(data)
+        setLoading(false)
+      })
   }
 
   if (loading) return <Loading />
