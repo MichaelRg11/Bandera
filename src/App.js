@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import { SectionHeader } from './components/header';
+import { GlobalStyles } from './assets/GlobalStyles'
 
 export const App = () => {
   AOS.init({
@@ -12,6 +13,7 @@ export const App = () => {
 
   return (
     <Fragment>
+      <GlobalStyles />
       <SectionHeader />
       <PublicRoutes />
     </Fragment>
