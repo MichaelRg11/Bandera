@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const GlobalStyles = createGlobalStyle`
 
   @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-  
+
   html {
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -72,4 +73,43 @@ export const GlobalStyles = createGlobalStyle`
   .scroll-containe::-webkit-scrollbar-track:active {
   background: #d4d4d4;
   }   
+
+  ${props => props.dark && css`
+    h1, h2, h3, h4, h5, p {
+      color: #fff;
+    }
+
+    body{
+      background: #2b3743;
+    }
+
+    button {
+      color: #fff;
+    }
+
+    div{
+      background: #2b3743;
+      border: none !important;
+    }
+
+    select {
+      background: #2b3743 !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 0 10px rgb(255, 255, 255, 0.2)
+    }
+
+    input{
+      background: #2b3743 !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 0 10px rgb(255, 255, 255, 0.2)
+    }
+
+    a{
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 0 10px rgb(255, 255, 255, 0.2)
+    }
+  `}
 `
