@@ -20,6 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+  a{
+      color: #000 !important;
+    }
+
   button {
     background: transparent;
     border: 0;
